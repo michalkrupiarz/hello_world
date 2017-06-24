@@ -1,4 +1,6 @@
 
   <ul>
-    <li *ngFor = "let ppl of names">Hello {{ppl}}</li>
+    <li *ngFor = "let ppl of names">
+      <app-user-item [name] = "ppl"></app-user-item>
+    </li>
   </ul>
