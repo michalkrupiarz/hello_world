@@ -1,11 +1,5 @@
-<div>
-  app component works
-</div>
-<div>
-  Here will be products
-
-  <products-list
-    [productList]="products"
-    (onProductSelected)="productWasSelected($event)">
-  </products-list>
+<div class= "inventory-app">
+  <app-product-list
+  [productList] = "products"
+  (onProductSelected) = "productWasSelected($event)"></app-product-list>
 </div>
