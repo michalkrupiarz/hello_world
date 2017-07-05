@@ -9,20 +9,21 @@
 export class SimpleHttpComponent implements OnInit {
   data:Object;
   loading:boolean;
-
+  url:string;
   constructor(private http:Http) {
-
-
-
+    this.url = 'http://jsonplaceholder.typicode.com/posts/1';
    }
 
   ngOnInit() {
   }
   makeRequest():void{
+  
     this.loading=true;
-    this.http.request('http://jsonplaceholder.typicode.com/posts/1').subscribe((res:Response)=>{
+    this.http.request(this.url).subscribe((res:Response)=>{
       this.data = res.json();
       this.loading = false;
     });
+
   }
+
 }
