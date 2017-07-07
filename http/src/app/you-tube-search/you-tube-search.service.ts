@@ -41,6 +41,7 @@ export class YouTubeSearchService {
       const queryUrl = `${'https://www.googleapis.com/youtube/v3/search'}?${params}`;
       console.log("Querry url ",queryUrl);
       console.log("Params ",params);
+      
       return this.http.get(queryUrl)
       .map((response: Response) => {
         return (<any>response.json()).items.map(item => {

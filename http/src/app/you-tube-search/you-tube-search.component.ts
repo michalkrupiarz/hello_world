@@ -14,6 +14,8 @@ export class YouTubeSearchComponent implements OnInit {
   ngOnInit() {
   }
   updateResults(results:SearchResult[]):void{
+    console.log("status loadingu ",this.loading)
     this.results=results;
+  
   }
 }
