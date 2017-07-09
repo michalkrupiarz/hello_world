@@ -1,4 +1,4 @@
-    import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule,ActivatedRoute,Router,Routes} from '@angular/router';
 
@@ -17,11 +17,12 @@ export const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
-  declarations: []
+  declarations: [ProductsComponent,
+    ProductComponent,
+    MainComponent,
+    MoreInfoComponent ]
 })
-
-
 
 export class ProductsModule { }

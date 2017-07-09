@@ -6,6 +6,7 @@ import {HttpModule} from '@angular/http';
 
 import {routes as childRoutes,ProductsModule} from './products/products.module';
 
+
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -40,7 +41,6 @@ children: childRoutes}
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    ProductsComponent,
     ProtectedComponent,
     HomeComponent
   ],
