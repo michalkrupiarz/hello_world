@@ -51,7 +51,7 @@ children: childRoutes}
     RouterModule.forRoot(routes),
     ProductsModule
   ],
-  providers: [],
+  providers: [LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
