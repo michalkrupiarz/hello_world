@@ -8,10 +8,44 @@ import {SpotifyService} from '../spotify.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  query:string;
+  results: Object;
+  constructor(private spotify:SpotifyService,
+              private router:Router,
+              private route: ActivatedRoute) {
+              this.route
+              .queryParams
+              .subscribe(params=>{this.query=params['query']||'';})
   }
+
+  ngOnInit():void {
+    this.search();
+  }
+
+  search(): void{
+    console.log('this.query ', this.query);
+    if(!this.query){
+      console.log('query is empy');
+      return;
+    }
+    this.spotify.searchTrack(this.query)
+    .subscribe((res:any)=>this
+    .renderResults(res));
+  }
+
+
+  renderResults(res:any):void{
+    this.results=null;
+    if(res&&res.tracks&&res.tracks.items){
+      this.results = res.track.items;
+    }
+  }
+
+  submit(query:string):void{
+    this.router.navigate(['search'],{queryParams:{query:query}})
+    .then(_=>this.search());
+  }
+
+
 
 }
