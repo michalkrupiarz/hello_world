@@ -4,12 +4,20 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
+import {routes as childRoutes,ProductsModule} from './products/products.module';
+
+
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { ProtectedComponent } from './protected/protected.component';
+import { HomeComponent } from './home/home.component';
+
+import {AuthService} from './auth.service';
+import {LoggedInGuard} from './logged-in.guard';
+
 
 const routes:Routes= [
 {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -25,7 +33,7 @@ const routes:Routes= [
 {path: 'products',
 component:ProductsComponent,
 children: childRoutes}
-]; 
+];
 
 @NgModule({
   declarations: [
@@ -33,8 +41,8 @@ children: childRoutes}
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    ProductsComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,7 @@ children: childRoutes}
     RouterModule.forRoot(routes),
     ProductsModule
   ],
-  providers: [],
+  providers: [LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
